@@ -72,6 +72,12 @@ curl -fsSL https://raw.githubusercontent.com/fikar46/copilot-agent-team/main/ins
 
 `rca-analyst` automatically brings its skill `rca-method`.
 
+**Where to run it:** the agents are generic and work in any project.
+- Without `-g`: installs into `.github/` of the folder you run it in, so run it from the **root of the target project**, then commit so your team gets them.
+- With `-g`: installs into `~/.copilot/`, so you can run it from anywhere. Agents apply to all your projects, on your machine only.
+
+Agents read the code of the project they are called in, so no per-project changes are needed. For project-specific rules, put them in `.github/copilot-instructions.md`; agents follow it (`include-custom-instructions: true`).
+
 Or install manually, pick one option:
 
 **A. Into a project (shared with the team via git).** From your project root:
