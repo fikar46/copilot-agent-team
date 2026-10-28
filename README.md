@@ -26,15 +26,40 @@ incident: tech-ops (mitigate) -> rca-analyst (root cause)
 expert-engineer supports every step on architecture and hard problems.
 ```
 
-## Usage
-CLI (inside your project):
+## How to call an agent
+Agents must first be installed (see Install below): in the project's `.github/agents/` or in `~/.copilot/agents/`.
+
+**1. Copilot CLI, one-shot.** Run in your project folder:
 ```
 copilot --agent product-owner --prompt "Write a PRD for <feature>"
 copilot --agent rca-analyst --prompt "Investigate why @tests/login.test.ts fails intermittently"
 ```
-Or use `/agent` in the CLI, or the agent selector in VS Code Chat.
 
-Prompt template: Context (`@files`) + Goal + Constraints + Acceptance.
+**2. Copilot CLI, interactive.** Start `copilot`, then:
+```
+/agent                 # list agents and pick one (e.g. backend-engineer)
+```
+After picking, every prompt goes to that agent. Use `/agent` again to switch.
+Skills: `/skills reload` after adding files, `/skills info rca-method` to check.
+
+**3. By name in a prompt.** Without switching, ask for it directly:
+```
+Use the qa-engineer agent to write a test plan for @docs/specs/login.md
+```
+Copilot can also delegate on its own when your task matches an agent's `description`.
+
+**4. VS Code.** Open Copilot Chat, open the agent dropdown at the bottom of the chat box, pick the agent (e.g. `frontend-engineer`), then type your prompt.
+
+Tip: chain them. Run `product-owner`, then `system-analyst` on the PRD it saved in `docs/product/`, and so on (see Workflow).
+
+Prompt template: Context (`@files`) + Goal + Constraints + Acceptance, e.g.
+```
+@docs/specs/login.md
+CONTEXT: login API spec is approved.
+GOAL: implement the login endpoint.
+CONSTRAINTS: follow the spec exactly, add tests.
+ACCEPTANCE: build and tests pass.
+```
 
 ## Install
 Copy `.github/agents/` and `.github/skills/` into your repo's `.github/` folder, or into `~/.copilot/agents` and `~/.copilot/skills` for personal use. Pick only the agents you need.
