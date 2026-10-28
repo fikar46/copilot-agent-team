@@ -27,7 +27,9 @@ expert-engineer supports every step on architecture and hard problems.
 ```
 
 ## How to call an agent
-Agents must first be installed (see Install below): in the project's `.github/agents/` or in `~/.copilot/agents/`.
+**Plugin install note:** agents installed as a plugin are prefixed with the plugin name, e.g. `copilot-agent-team:qa-engineer`. Select the agent first (name only), then send your prompt as a separate message. Do not type the agent name and the prompt on the same line, or Copilot reads the whole sentence as the agent name ("No agent matching ...").
+
+Agents must first be installed (see Install below): as a plugin, in the project's `.github/agents/`, or in `~/.copilot/agents/`.
 
 **1. Copilot CLI, one-shot.** Run in your project folder:
 ```
