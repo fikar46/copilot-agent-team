@@ -62,11 +62,21 @@ ACCEPTANCE: build and tests pass.
 ```
 
 ## Install
-**Easiest: as a Copilot plugin** (CLI and Copilot app, no files to copy):
+**Easiest: as a Copilot plugin** (no files to copy; agents work in every project).
+
+*Copilot CLI:*
 ```
 copilot plugin install fikar46/copilot-agent-team
 ```
-Then check with `copilot plugin list` and `/agent`. Update with `copilot plugin update copilot-agent-team`, remove with `copilot plugin uninstall copilot-agent-team`. Plugin agents are available in every project.
+Check with `copilot plugin list` and `/agent`. Update: `copilot plugin update copilot-agent-team`. Remove: `copilot plugin uninstall copilot-agent-team`.
+
+*GitHub Copilot app (desktop):* this repo is also a plugin marketplace.
+1. Click **Customize**, then **Plugins**.
+2. Add the marketplace `fikar46/copilot-agent-team` (the marketplace is named `fikar46-agents`).
+3. Find `copilot-agent-team` and click **Install**.
+4. Pick an agent (e.g. `qa-engineer`) in the session's agent selector.
+
+If the app has no way to add a marketplace, run in the CLI once: `copilot plugin marketplace add fikar46/copilot-agent-team`, then `copilot plugin install copilot-agent-team@fikar46-agents`.
 
 **Or: one command into a project** (no clone needed). Run from your project root:
 ```
