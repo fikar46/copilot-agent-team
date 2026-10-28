@@ -62,7 +62,13 @@ ACCEPTANCE: build and tests pass.
 ```
 
 ## Install
-**Easiest: one command** (no clone needed). Run from your project root:
+**Easiest: as a Copilot plugin** (CLI and Copilot app, no files to copy):
+```
+copilot plugin install fikar46/copilot-agent-team
+```
+Then check with `copilot plugin list` and `/agent`. Update with `copilot plugin update copilot-agent-team`, remove with `copilot plugin uninstall copilot-agent-team`. Plugin agents are available in every project.
+
+**Or: one command into a project** (no clone needed). Run from your project root:
 ```
 curl -fsSL https://raw.githubusercontent.com/fikar46/copilot-agent-team/main/install.sh | bash
 ```
