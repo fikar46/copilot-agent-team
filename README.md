@@ -62,7 +62,17 @@ ACCEPTANCE: build and tests pass.
 ```
 
 ## Install
-Pick one option.
+**Easiest: one command** (no clone needed). Run from your project root:
+```
+curl -fsSL https://raw.githubusercontent.com/fikar46/copilot-agent-team/main/install.sh | bash
+```
+- Specific agents only: `... | bash -s -- qa-engineer tech-ops`
+- Personal, for all projects (`~/.copilot`): `... | bash -s -- -g`
+- Personal + specific: `... | bash -s -- -g qa-engineer`
+
+`rca-analyst` automatically brings its skill `rca-method`.
+
+Or install manually, pick one option:
 
 **A. Into a project (shared with the team via git).** From your project root:
 ```
