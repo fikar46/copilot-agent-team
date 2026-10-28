@@ -62,7 +62,26 @@ ACCEPTANCE: build and tests pass.
 ```
 
 ## Install
-Copy `.github/agents/` and `.github/skills/` into your repo's `.github/` folder, or into `~/.copilot/agents` and `~/.copilot/skills` for personal use. Pick only the agents you need.
+Pick one option.
+
+**A. Into a project (shared with the team via git).** From your project root:
+```
+git clone https://github.com/fikar46/copilot-agent-team.git /tmp/copilot-agent-team
+mkdir -p .github/agents .github/skills
+cp /tmp/copilot-agent-team/.github/agents/*.agent.md .github/agents/
+cp -r /tmp/copilot-agent-team/.github/skills/* .github/skills/
+git add .github && git commit -m "Add Copilot agents"
+```
+Copy only the agents you need (e.g. `cp .../agents/qa-engineer.agent.md .github/agents/`). Keep `rca-method` if you use `rca-analyst`.
+
+**B. Personal (all your projects, not in git).**
+```
+mkdir -p ~/.copilot/agents ~/.copilot/skills
+cp /tmp/copilot-agent-team/.github/agents/*.agent.md ~/.copilot/agents/
+cp -r /tmp/copilot-agent-team/.github/skills/* ~/.copilot/skills/
+```
+
+**Verify.** Open `copilot` in the project, run `/agent` to see the list, and `/skills reload` then `/skills info rca-method`. In VS Code, reopen Chat and check the agent dropdown.
 
 ## More
 How agents, skills, and instructions work in Copilot: [docs/SPIKE.md](docs/SPIKE.md).
